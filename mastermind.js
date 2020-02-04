@@ -19,3 +19,17 @@ const fetchCombinationAndRender = async () => {
     console.error(err);
   }
 };
+
+const renderCombinations = combinations => {
+  combinations.forEach((c, idx) => {
+    if (c) {
+      const li = document.createElement("li");
+      li.innerText = c;
+      li.id = idx;
+      document.getElementById("combination").appendChild(li);
+      return li;
+    }
+  });
+};
+
+fetchCombinationAndRender();
