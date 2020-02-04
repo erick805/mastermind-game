@@ -22,10 +22,15 @@ const fetchCombination = async () => {
 class Game {
   constructor() {
     this._winningCombination = [];
+    this.playersGuesses = [];
+    this.TOTAL_ATTEMPTS = 10;
+    this.attemptsTaken = 0;
   }
+
   static init() {
     return (async function() {
       const game = new Game();
+
       await game.build();
       return game;
     })();
@@ -37,27 +42,24 @@ class Game {
   }
 }
 
-async function newGame() {
+const newGame = async () => {
   const game = await Game.init();
-}
-
-newGame();
-
-const fetchCombinationAndRender = async () => {
-  const combinations = await fetchCombination();
-  renderCombinations(combinations);
+  return game;
 };
 
-const renderCombinations = combinations => {
-  combinations.forEach((c, idx) => {
-    if (c) {
-      const li = document.createElement("li");
-      li.innerText = c;
-      li.id = idx;
-      document.getElementById("combination").appendChild(li);
-      return li;
+const playGame = async () => {
+  let game = await newGame();
+
+  const submit = document.getElementById("submit");
+
+  submit.addEventListener("click", () => {
+    const playersGuesses = document.querySelectorAll("input");
+    const currentGuess = [];
+    for (const { value } of playersGuesses) {
+      currentGuess.push(value);
     }
+    game.playersGuesses.push(currentGuess);
   });
 };
 
-fetchCombinationAndRender();
+playGame();
