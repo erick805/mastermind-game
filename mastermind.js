@@ -23,6 +23,7 @@ class Game {
   constructor() {
     this._winningCombination = [];
     this.playersGuesses = [];
+    this.currentGuess = [];
     this.TOTAL_ATTEMPTS = 10;
     this.attemptsTaken = 0;
   }
@@ -40,6 +41,33 @@ class Game {
     const combination = await fetchCombination();
     this._winningCombination = combination;
   }
+
+  checkGuess() {
+    let feedback = "";
+    const switches = { correct: false, correctInPlace: false };
+    let { correct, correctInPlace } = switches;
+
+    for (let i = 0; i < this.currentGuess.length; i++) {
+      const guess = this.currentGuess[i];
+      if (this._winningCombination.find(num => num === guess)) {
+        correct = true;
+      }
+      if (guess === this._winningCombination[i]) {
+        correctInPlace = true;
+      }
+    }
+
+    if ((correctInPlace || correct) && correctInPlace) {
+      feedback = `You got a correct number and place!`;
+    } else if ((correctInPlace || correct) && !correctInPlace) {
+      feedback = `You got a correct number`;
+    } else if (!(correct && correctInPlace)) {
+      feedback = `Sorry your number is incorrect`;
+    }
+
+    this.currentGuess = [];
+    return feedback;
+  }
 }
 
 const newGame = async () => {
@@ -49,16 +77,15 @@ const newGame = async () => {
 
 const playGame = async () => {
   let game = await newGame();
-
   const submit = document.getElementById("submit");
-
   submit.addEventListener("click", () => {
     const playersGuesses = document.querySelectorAll("input");
-    const currentGuess = [];
     for (const { value } of playersGuesses) {
-      currentGuess.push(value);
+      game.currentGuess.push(value);
     }
-    game.playersGuesses.push(currentGuess);
+    game.playersGuesses.push(game.currentGuess);
+    game.attemptsTaken++;
+    game.checkGuess();
   });
 };
 
