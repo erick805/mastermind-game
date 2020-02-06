@@ -50,7 +50,6 @@ class Game {
     const switches = { correct: false, correctInPlace: false };
     let { correct, correctInPlace } = switches;
     const feedbackInput = document.getElementById("feedback");
-
     for (let i = 0; i < this.currentGuess.length; i++) {
       const guess = this.currentGuess[i];
       if (this._winningCombination.find(num => num === guess)) {
@@ -77,12 +76,16 @@ class Game {
   }
 
   updateProgressBar() {
-    const feedbackInput = document.getElementById("progress-bar-full");
+    const feedbackBar = document.getElementById("progress-bar-full");
+    const attemptsInput = document.getElementById("attempts-taken");
     const attempts = this.attemptsTaken;
 
     const width = (attempts / this.TOTAL_ATTEMPTS) * 100;
-
-    feedbackInput.style.width = `${width}%`;
+    feedbackBar.style.width = width <= 100 ? `${width}%` : "100%";
+    attemptsInput.innerHTML =
+      this.attemptsTaken <= 10
+        ? `${this.attemptsTaken}/${this.TOTAL_ATTEMPTS}`
+        : `${this.TOTAL_ATTEMPTS}/${this.TOTAL_ATTEMPTS}`;
   }
 }
 
