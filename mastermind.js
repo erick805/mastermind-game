@@ -22,11 +22,8 @@ const fetchCombination = async () => {
 class Game {
   constructor() {
     this._winningCombination = [];
-    // this.playersGuesses = [];
-    this.playersGuesses = new Set();
+    this.playersGuesses = new Map();
     this.currentGuess = [];
-    // this.cache = new Set();
-    // this.currentGuess = {};
     this.TOTAL_ATTEMPTS = 10;
     this.attemptsTaken = 0;
   }
@@ -68,7 +65,9 @@ class Game {
       feedback = `Sorry your number is incorrect`;
     }
     this.attemptsTaken++;
-    this.playersGuesses.add({ guess: this.currentGuess, feedback });
+
+    this.playersGuesses.set({ guess: this.currentGuess, feedback });
+
     this.currentGuess = [];
     this.updateProgressBar();
     feedbackInput.innerHTML = feedback;
@@ -87,6 +86,23 @@ class Game {
         ? `${this.attemptsTaken}/${this.TOTAL_ATTEMPTS}`
         : `${this.TOTAL_ATTEMPTS}/${this.TOTAL_ATTEMPTS}`;
   }
+
+  renderHistory() {
+    const historyInput = document.getElementById("history");
+    const cache = new Set();
+
+    for (const val of this.playersGuesses) {
+      const pastGuess = val[0];
+      const { guess, feedback } = pastGuess;
+      const strGuess = guess.join("");
+      cache.add(`${strGuess} ${feedback}`);
+    }
+    for (const val of cache) {
+      const li = document.createElement("li");
+      li.innerText = val;
+      historyInput.appendChild(li);
+    }
+  }
 }
 
 const newGame = async () => {
@@ -104,6 +120,7 @@ const playGame = async () => {
       game.currentGuess.push(value);
     }
     game.checkGuess();
+    game.renderHistory();
   });
 };
 
