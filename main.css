@@ -1,0 +1,12 @@
+#progress-bar {
+  width: 20rem;
+  height: 4rem;
+  border: 0.3rem solid #89a2b8;
+  margin-top: 1.5rem;
+}
+
+#progress-bar-full {
+  height: 4rem;
+  background-color: #89a2b8;
+  width: 0%;
+}

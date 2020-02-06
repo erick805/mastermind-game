@@ -49,6 +49,8 @@ class Game {
     let feedback = "";
     const switches = { correct: false, correctInPlace: false };
     let { correct, correctInPlace } = switches;
+    const feedbackInput = document.getElementById("feedback");
+
     for (let i = 0; i < this.currentGuess.length; i++) {
       const guess = this.currentGuess[i];
       if (this._winningCombination.find(num => num === guess)) {
@@ -69,7 +71,18 @@ class Game {
     this.attemptsTaken++;
     this.playersGuesses.add({ guess: this.currentGuess, feedback });
     this.currentGuess = [];
+    this.updateProgressBar();
+    feedbackInput.innerHTML = feedback;
     return feedback;
+  }
+
+  updateProgressBar() {
+    const feedbackInput = document.getElementById("progress-bar-full");
+    const attempts = this.attemptsTaken;
+
+    const width = (attempts / this.TOTAL_ATTEMPTS) * 100;
+
+    feedbackInput.style.width = `${width}%`;
   }
 }
 
@@ -79,7 +92,7 @@ const newGame = async () => {
 };
 
 const playGame = async () => {
-  let game = await newGame();
+  const game = await newGame();
   const unlock = document.getElementById("submit");
 
   unlock.addEventListener("click", () => {

@@ -4,10 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" href="main.css" />
     <script defer src="mastermind.js"></script>
     <title>MasterMind Game</title>
   </head>
   <body>
+    <div id="header">
+      <div id="progress-bar">
+        <div id="progress-bar-full"></div>
+      </div>
+      </div>
     <ol id="combination"></ol>
       <input type="number" id="0" class="lock" min="0" max="7"/>
       <input type="number" id="1" class="lock" min="0" max="7"/>
@@ -15,5 +21,6 @@
       <input type="number" id="3" class="lock" min="0" max="7"/>
     </ol>
     <button id="submit" type="button">Unlock</button>
+    <div id="feedback"></div>
   </body>
 </html>
