@@ -63,7 +63,6 @@ class Game {
     if (this.attemptsTaken < this.TOTAL_ATTEMPTS) {
       this.attemptsTaken++;
     }
-    this.updateProgressBar();
 
     if (counter === 4 && this.attemptsTaken <= this.TOTAL_ATTEMPTS) {
       feedbackInput.innerHTML = "You escaped!";
@@ -86,18 +85,6 @@ class Game {
     this.currentGuess = [];
     feedbackInput.innerHTML = feedback;
     return feedback;
-  }
-
-  updateProgressBar() {
-    const feedbackBar = document.getElementById("progress-bar-full");
-    const attemptsInput = document.getElementById("attempts-taken");
-    const attempts = this.attemptsTaken;
-    const width = (attempts / this.TOTAL_ATTEMPTS) * 100;
-    feedbackBar.style.width = width <= 100 ? `${width}%` : "100%";
-    attemptsInput.innerHTML =
-      attempts <= 10
-        ? `${attempts}/${this.TOTAL_ATTEMPTS}`
-        : `${this.TOTAL_ATTEMPTS}/${this.TOTAL_ATTEMPTS}`;
   }
 
   renderHistory() {
@@ -133,8 +120,21 @@ const playGame = async () => {
       game.currentGuess.push(value);
     }
     game.checkGuess();
+    updateProgressBar(game);
     game.renderHistory();
   });
+};
+
+const updateProgressBar = game => {
+  const feedbackBar = document.getElementById("progress-bar-full");
+  const attemptsInput = document.getElementById("attempts-taken");
+  const attempts = game.attemptsTaken;
+  const width = (attempts / game.TOTAL_ATTEMPTS) * 100;
+  feedbackBar.style.width = width <= 100 ? `${width}%` : "100%";
+  attemptsInput.innerHTML =
+    attempts <= 10
+      ? `${attempts}/${game.TOTAL_ATTEMPTS}`
+      : `${game.TOTAL_ATTEMPTS}/${game.TOTAL_ATTEMPTS}`;
 };
 
 playGame();
