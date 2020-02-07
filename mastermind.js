@@ -81,10 +81,19 @@ class Game {
     }
 
     this.playersGuesses.set({ guess: this.currentGuess, feedback });
-
+    this.provideHint(counter);
     this.currentGuess = [];
     feedbackInput.innerHTML = feedback;
     return feedback;
+  }
+
+  provideHint(counter) {
+    const hintButton = document.getElementById("hint-button");
+    const hint = document.getElementById("hint");
+
+    hintButton.addEventListener("click", () => {
+      hint.innerText = `You got ${counter} numbers and locations right!`;
+    });
   }
 }
 
