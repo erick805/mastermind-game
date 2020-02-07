@@ -86,23 +86,6 @@ class Game {
     feedbackInput.innerHTML = feedback;
     return feedback;
   }
-
-  renderHistory() {
-    const historyInput = document.getElementById("history");
-    const cache = new Set();
-
-    for (const val of this.playersGuesses) {
-      const pastGuess = val[0];
-      const { guess, feedback } = pastGuess;
-      const strGuess = guess.join("");
-      cache.add(`${strGuess} ${feedback}`);
-    }
-    for (const val of cache) {
-      const li = document.createElement("li");
-      li.innerText = val;
-      historyInput.appendChild(li);
-    }
-  }
 }
 
 const newGame = async () => {
@@ -121,7 +104,7 @@ const playGame = async () => {
     }
     game.checkGuess();
     updateProgressBar(game);
-    game.renderHistory();
+    renderHistory(game);
   });
 };
 
@@ -135,6 +118,23 @@ const updateProgressBar = game => {
     attempts <= 10
       ? `${attempts}/${game.TOTAL_ATTEMPTS}`
       : `${game.TOTAL_ATTEMPTS}/${game.TOTAL_ATTEMPTS}`;
+};
+
+const renderHistory = game => {
+  const historyInput = document.getElementById("history");
+  const cache = new Set();
+
+  for (const val of game.playersGuesses) {
+    const pastGuess = val[0];
+    const { guess, feedback } = pastGuess;
+    const strGuess = guess.join("");
+    cache.add(`${strGuess} ${feedback}`);
+  }
+  for (const val of cache) {
+    const li = document.createElement("li");
+    li.innerText = val;
+    historyInput.appendChild(li);
+  }
 };
 
 playGame();
