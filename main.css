@@ -16,6 +16,10 @@ main {
   justify-content: center;
 }
 
+#history-button {
+  margin-right: 50rem;
+}
+
 #progress-bar {
   width: 10rem;
   height: 1rem;

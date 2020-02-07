@@ -96,6 +96,7 @@ const newGame = async () => {
 const playGame = async () => {
   const game = await newGame();
   const unlock = document.getElementById("submit");
+  const viewHistory = document.getElementById("history-button");
 
   unlock.addEventListener("click", () => {
     const inputs = document.querySelectorAll("input");
@@ -104,6 +105,9 @@ const playGame = async () => {
     }
     game.checkGuess();
     updateProgressBar(game);
+  });
+
+  viewHistory.addEventListener("click", () => {
     renderHistory(game);
   });
 };
