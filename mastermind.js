@@ -116,8 +116,8 @@ const updateProgressBar = game => {
   feedbackBar.style.width = width <= 100 ? `${width}%` : "100%";
   attemptsInput.innerHTML =
     attempts <= 10
-      ? `${attempts}/${game.TOTAL_ATTEMPTS}`
-      : `${game.TOTAL_ATTEMPTS}/${game.TOTAL_ATTEMPTS}`;
+      ? `Attempts Left: ${attempts}/${game.TOTAL_ATTEMPTS}`
+      : `Attempts Left: ${game.TOTAL_ATTEMPTS}/${game.TOTAL_ATTEMPTS}`;
 };
 
 const renderHistory = game => {
