@@ -73,7 +73,7 @@ class Game {
     }
 
     if ((correctInPlace || correct) && correctInPlace) {
-      feedback = `You got a correct number and place!`;
+      feedback = `Got a correct number and place!`;
     } else if ((correctInPlace || correct) && !correctInPlace) {
       feedback = `You got a correct number`;
     } else if (!(correct && correctInPlace)) {
