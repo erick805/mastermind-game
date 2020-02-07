@@ -46,6 +46,8 @@ class Game {
     let feedback = "";
     const switches = { correct: false, correctInPlace: false };
     let { correct, correctInPlace } = switches;
+    let counter = 0;
+
     const feedbackInput = document.getElementById("feedback");
     for (let i = 0; i < this.currentGuess.length; i++) {
       const guess = this.currentGuess[i];
@@ -54,7 +56,21 @@ class Game {
       }
       if (guess === this._winningCombination[i]) {
         correctInPlace = true;
+        counter++;
       }
+    }
+
+    if (this.attemptsTaken < this.TOTAL_ATTEMPTS) {
+      this.attemptsTaken++;
+    }
+    this.updateProgressBar();
+
+    if (counter === 4 && this.attemptsTaken <= this.TOTAL_ATTEMPTS) {
+      feedbackInput.innerHTML = "You escaped!";
+      return;
+    } else if (this.attemptsTaken === this.TOTAL_ATTEMPTS) {
+      feedbackInput.innerHTML = "Better luck next time buddy.";
+      return;
     }
 
     if ((correctInPlace || correct) && correctInPlace) {
@@ -64,12 +80,10 @@ class Game {
     } else if (!(correct && correctInPlace)) {
       feedback = `Sorry your number is incorrect`;
     }
-    this.attemptsTaken++;
 
     this.playersGuesses.set({ guess: this.currentGuess, feedback });
 
     this.currentGuess = [];
-    this.updateProgressBar();
     feedbackInput.innerHTML = feedback;
     return feedback;
   }
@@ -78,12 +92,11 @@ class Game {
     const feedbackBar = document.getElementById("progress-bar-full");
     const attemptsInput = document.getElementById("attempts-taken");
     const attempts = this.attemptsTaken;
-
     const width = (attempts / this.TOTAL_ATTEMPTS) * 100;
     feedbackBar.style.width = width <= 100 ? `${width}%` : "100%";
     attemptsInput.innerHTML =
-      this.attemptsTaken <= 10
-        ? `${this.attemptsTaken}/${this.TOTAL_ATTEMPTS}`
+      attempts <= 10
+        ? `${attempts}/${this.TOTAL_ATTEMPTS}`
         : `${this.TOTAL_ATTEMPTS}/${this.TOTAL_ATTEMPTS}`;
   }
 
