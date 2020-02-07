@@ -12,6 +12,8 @@
     <header>
       <button id="history-button" type="button">View History</button>
       <div id="attempts-taken"></div>
+      <button id="hint-button" type="button">Provide Hint</button>
+      <div id="hint"></div>
       <div id="progress-bar">
         <div id="progress-bar-full"></div>
       </div>
@@ -20,10 +22,10 @@
     <main>
       <h1>MASTERMIND GAME</h1>
       <ol id="combination">
-        <input type="number" id="0" class="lock" min="0" max="7" />
-        <input type="number" id="1" class="lock" min="0" max="7" />
-        <input type="number" id="2" class="lock" min="0" max="7" />
-        <input type="number" id="3" class="lock" min="0" max="7" />
+        <input type="number" value="0" id="0" class="lock" min="0" max="7" />
+        <input type="number" value="0" id="1" class="lock" min="0" max="7" />
+        <input type="number" value="0" id="2" class="lock" min="0" max="7" />
+        <input type="number" value="0" id="3" class="lock" min="0" max="7" />
         <button id="submit" type="button">Unlock</button>
       </ol>
       <div id="feedback"></div>
