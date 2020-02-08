@@ -1,7 +1,7 @@
-const fetchCombination = async () => {
+const fetchCombination = async (num = 4) => {
   try {
     const res = await fetch(
-      `https://www.random.org/integers/?num=4&min=0&max=7&col=1&base=10&format=plain&rnd=new`
+      `https://www.random.org/integers/?num=${num}&min=0&max=7&col=1&base=10&format=plain&rnd=new`
     );
 
     if (res.status === 200) {
@@ -25,6 +25,7 @@ class Game {
     this.playersGuesses = new Map();
     this.currentGuess = [];
     this.TOTAL_ATTEMPTS = 10;
+    // this.timeTaken = null;
     this.attemptsTaken = 0;
   }
 
@@ -38,6 +39,8 @@ class Game {
   }
 
   async build() {
+    // const locks = document.getElementById("amount-of-locks");
+    // const num = locks.options[locks.selectedIndex].text;
     const combination = await fetchCombination();
     this._winningCombination = combination;
   }
@@ -64,8 +67,11 @@ class Game {
       this.attemptsTaken++;
     }
 
-    if (counter === 4 && this.attemptsTaken <= this.TOTAL_ATTEMPTS) {
-      feedbackInput.innerHTML = "You escaped!";
+    if (
+      counter === this._winningCombination.length &&
+      this.attemptsTaken <= this.TOTAL_ATTEMPTS
+    ) {
+      feedbackInput.innerHTML = `You escaped!`;
       return;
     } else if (this.attemptsTaken === this.TOTAL_ATTEMPTS) {
       feedbackInput.innerHTML = "Better luck next time buddy.";
@@ -107,13 +113,39 @@ const playGame = async () => {
   const unlock = document.getElementById("submit");
   const viewHistory = document.getElementById("history-button");
 
+  const minutes = document.getElementById("minutes");
+  const seconds = document.getElementById("seconds");
+  let totalSeconds = 0;
+
+  setInterval(setTime, 1000);
+
+  function setTime() {
+    totalSeconds++;
+    seconds.innerHTML = stringify(totalSeconds % 60);
+    minutes.innerHTML = stringify(parseInt(totalSeconds / 60));
+
+    return `min: ${minutes.innerHTML} seconds: ${seconds.innerHTML} `;
+  }
+
+  function stringify(val) {
+    let valStr = val + "";
+    if (valStr.length < 2) {
+      return "0" + valStr;
+    } else {
+      return valStr;
+    }
+  }
+
   unlock.addEventListener("click", () => {
     const inputs = document.querySelectorAll("input");
+
     for (const { value } of inputs) {
       game.currentGuess.push(value);
     }
+
     game.checkGuess();
     updateProgressBar(game);
+    // game.timeTaken = time;
   });
 
   viewHistory.addEventListener("click", () => {
@@ -129,8 +161,8 @@ const updateProgressBar = game => {
   feedbackBar.style.width = width <= 100 ? `${width}%` : "100%";
   attemptsInput.innerHTML =
     attempts <= 10
-      ? `Attempts Left: ${attempts}/${game.TOTAL_ATTEMPTS}`
-      : `Attempts Left: ${game.TOTAL_ATTEMPTS}/${game.TOTAL_ATTEMPTS}`;
+      ? `Attempts Taken: ${attempts}/${game.TOTAL_ATTEMPTS}`
+      : `Attempts Taken: ${game.TOTAL_ATTEMPTS}/${game.TOTAL_ATTEMPTS}`;
 };
 
 const renderHistory = game => {
