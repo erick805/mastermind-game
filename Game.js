@@ -52,10 +52,10 @@ export default class Game {
       counter === this._winningCombination.length &&
       this.attemptsTaken <= this.TOTAL_ATTEMPTS
     ) {
-      feedbackInput.innerHTML = `You escaped!`;
+      feedbackInput.innerText = `YOU ESCAPED! Phew!`;
       return;
     } else if (this.attemptsTaken === this.TOTAL_ATTEMPTS) {
-      feedbackInput.innerHTML = "Better luck next time buddy.";
+      feedbackInput.innerText = "Better luck next time buddy.";
       return;
     }
 
@@ -70,7 +70,7 @@ export default class Game {
     this.playersGuesses.set({ guess: this.currentGuess, feedback });
     this.provideHint(counter);
     this.currentGuess = [];
-    feedbackInput.innerHTML = feedback;
+    feedbackInput.innerText = feedback;
     return feedback;
   }
 

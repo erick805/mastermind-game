@@ -52,4 +52,8 @@ const renderTime = () => {
   }
 };
 
-export { updateProgressBar, renderHistory, renderTime };
+const playSound = soundStr => {
+  document.getElementById(soundStr).play();
+};
+
+export { updateProgressBar, renderHistory, renderTime, playSound };
