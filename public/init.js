@@ -44,6 +44,8 @@ const playGame = async () => {
   viewHistory.addEventListener("click", () => {
     renderHistory(game);
   });
+
+  return game;
 };
 
 playGame();
