@@ -1,5 +1,7 @@
 body {
   display: grid;
+  font-family: "Inconsolata", monospace;
+  background-color: #d8e4ff;
   grid-template-columns: 75% 25%;
   grid-template-rows: 10vw 30vw 10vw;
   grid-gap: 1em;
@@ -11,9 +13,27 @@ body {
 header,
 main {
   grid-column: 1 / span 2;
-  /* background: #eaeaea; */
   align-items: center;
   justify-content: center;
+}
+
+button {
+  border: 0.1rem solid #35605a;
+  font-family: "Inconsolata", monospace;
+  transition-duration: 0.4s;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #3e8e41;
+  color: white;
+}
+
+button:active {
+  background-color: #35605a;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
 
 #history-button {
@@ -23,16 +43,16 @@ main {
 #progress-bar {
   width: 10rem;
   height: 1rem;
-  border: 0.3rem solid #89a2b8;
+  border: 0.1rem solid #89a2b8;
   margin-left: 30rem;
 }
 
 #progress-bar-full {
   height: 1rem;
-  background-color: #89a2b8;
+  background-color: #35605a;
   width: 0%;
 }
 
 #attempts-taken {
-  margin-left: 20rem;
+  margin-left: 30rem;
 }
