@@ -63,6 +63,7 @@ button:active {
 #progress-bar {
   width: 10rem;
   height: 1rem;
+  background-color: white;
   border: 0.1rem solid #89a2b8;
   margin-left: 30rem;
 }
@@ -84,6 +85,7 @@ button:active {
 #minutes,
 #seconds {
   border: 0.1rem solid #35605a;
+  background-color: white;
   border-radius: 6px;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
