@@ -28,28 +28,21 @@ export default class Game {
 
   checkGuess() {
     let feedback = "";
-    const switches = { correct: false, correctInPlace: false };
-    let { correct, correctInPlace } = switches;
-    let counter = 0;
-
+    const correct = this.currentGuess.some(guess =>
+      this._winningCombination.includes(guess)
+    );
+    const numberCorrectInPlace = this.currentGuess.filter(
+      (guess, i) => guess === this._winningCombination[i]
+    ).length;
+    const correctInPlace = numberCorrectInPlace > 0;
     const feedbackInput = document.getElementById("feedback");
-    for (let i = 0; i < this.currentGuess.length; i++) {
-      const guess = this.currentGuess[i];
-      if (this._winningCombination.find(num => num === guess)) {
-        correct = true;
-      }
-      if (guess === this._winningCombination[i]) {
-        correctInPlace = true;
-        counter++;
-      }
-    }
 
     if (this.attemptsTaken < this.TOTAL_ATTEMPTS) {
       this.attemptsTaken++;
     }
 
     if (
-      counter === this._winningCombination.length &&
+      numberCorrectInPlace === this._winningCombination.length &&
       this.attemptsTaken <= this.TOTAL_ATTEMPTS
     ) {
       feedbackInput.innerText = `YOU ESCAPED! Phew!`;
@@ -59,16 +52,16 @@ export default class Game {
       return;
     }
 
-    if ((correctInPlace || correct) && correctInPlace) {
+    if (correctInPlace) {
       feedback = `Got a correct number and place!`;
-    } else if ((correctInPlace || correct) && !correctInPlace) {
+    } else if (correct && !correctInPlace) {
       feedback = `You got a correct number`;
     } else if (!(correct && correctInPlace)) {
       feedback = `Sorry your number is incorrect`;
     }
 
-    this.playersGuesses.set({ guess: this.currentGuess, feedback });
-    this.provideHint(counter);
+    this.playersGuesses.set(this.currentGuess.join(""), feedback);
+    this.provideHint(numberCorrectInPlace);
     this.currentGuess = [];
     feedbackInput.innerText = feedback;
     return feedback;
