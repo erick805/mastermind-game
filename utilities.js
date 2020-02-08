@@ -27,4 +27,29 @@ const renderHistory = game => {
   }
 };
 
-export { updateProgressBar, renderHistory };
+const renderTime = () => {
+  const minutes = document.getElementById("minutes");
+  const seconds = document.getElementById("seconds");
+  let totalSeconds = 0;
+
+  setInterval(setTime, 1000);
+
+  function setTime() {
+    totalSeconds++;
+    seconds.innerHTML = stringify(totalSeconds % 60);
+    minutes.innerHTML = stringify(parseInt(totalSeconds / 60));
+
+    return `min: ${minutes.innerHTML} seconds: ${seconds.innerHTML} `;
+  }
+
+  function stringify(val) {
+    let valStr = val + "";
+    if (valStr.length < 2) {
+      return "0" + valStr;
+    } else {
+      return valStr;
+    }
+  }
+};
+
+export { updateProgressBar, renderHistory, renderTime };
