@@ -11,9 +11,14 @@
   <body>
     <header>
       <button id="history-button" type="button">View History</button>
-      <div id="attempts-taken"></div>
       <button id="hint-button" type="button">Provide Hint</button>
-      <label id="minutes">00</label>:<label id="seconds">00</label>
+      <div id="attempts-taken">Attempts Taken: 0/10</div>
+      <div id="progress-bar">
+        <div id="progress-bar-full"></div>
+      </div>
+      <div id="time">
+        <label id="minutes">00</label>:<label id="seconds">00</label>
+      </div>
       <!-- <h3>Amount of Locks</h3>
       <select id="amount-of-locks">
         <option value="4">4</option>
@@ -22,12 +27,7 @@
         <option value="7">7</option>
         <option value="8">8</option>
       </select> -->
-      <div id="hint"></div>
-      <div id="progress-bar">
-        <div id="progress-bar-full"></div>
-      </div>
     </header>
-
     <main>
       <h1>MASTERMIND GAME</h1>
       <ol id="combination">
@@ -37,6 +37,8 @@
         <input type="number" value="0" id="3" class="lock" min="0" max="7" />
         <button id="submit" type="button">Unlock</button>
       </ol>
+      <div id="hint"></div>
+      <br />
       <div id="feedback"></div>
       <ol id="history"></ol>
     </main>
