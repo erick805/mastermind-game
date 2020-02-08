@@ -12,17 +12,10 @@ const updateProgressBar = game => {
 
 const renderHistory = game => {
   const historyInput = document.getElementById("history");
-  const cache = new Set();
 
-  for (const val of game.playersGuesses) {
-    const pastGuess = val[0];
-    const { guess, feedback } = pastGuess;
-    const strGuess = guess.join("");
-    cache.add(`${strGuess} ${feedback}`);
-  }
-  for (const val of cache) {
+  for (const [guess, feedback] of game.playersGuesses.entries()) {
     const li = document.createElement("li");
-    li.innerText = val;
+    li.innerText = `${guess} ${feedback}`;
     historyInput.appendChild(li);
   }
 };
