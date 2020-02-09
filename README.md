@@ -10,10 +10,10 @@ a true random number generator that generates randomness from atmospheric noise.
 
 **Development Mode:**
 <ol>
-     <li>git clone https://github.com/rickylaufitness/mastermind-game.git</li>
-     <li>$ cd mastermind-game`</li>
-- Install live server. [live server vs code ext](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
-- Find index.html inside public dir. Right click and press "Open with Live Server".
+     <li>$ git clone https://github.com/rickylaufitness/mastermind-game.git</li>
+     <li>$ cd mastermind-game</li>
+     <li>Install live server. [live server vs code ext](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)</li>
+     <li>Find index.html inside public dir. Right click and press "Open with Live Server".</li>
 </ol>
 ![open live](./public/images/open-live.png)
 
