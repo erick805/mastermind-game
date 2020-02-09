@@ -1,18 +1,18 @@
 const updateProgressBar = game => {
-  const feedbackBar = document.getElementById("progress-bar-full");
+  const progressBar = document.getElementById("progress-bar-full");
   const attemptsInput = document.getElementById("attempts-taken");
-  const attempts = game.attemptsTaken;
-  const width = (attempts / game.TOTAL_ATTEMPTS) * 100;
-  feedbackBar.style.width = width <= 100 ? `${width}%` : "100%";
+
+  const { attemptsTaken, TOTAL_ATTEMPTS } = game;
+  const width = (attemptsTaken / TOTAL_ATTEMPTS) * 100;
+  progressBar.style.width = width <= 100 ? `${width}%` : "100%";
   attemptsInput.innerHTML =
-    attempts <= 10
-      ? `Attempts Taken: ${attempts}/${game.TOTAL_ATTEMPTS}`
-      : `Attempts Taken: ${game.TOTAL_ATTEMPTS}/${game.TOTAL_ATTEMPTS}`;
+    attemptsTaken <= TOTAL_ATTEMPTS
+      ? `Attempts Taken: ${attemptsTaken}/${TOTAL_ATTEMPTS}`
+      : `Attempts Taken: ${TOTAL_ATTEMPTS}/${TOTAL_ATTEMPTS}`;
 };
 
 const renderHistory = game => {
   const historyInput = document.getElementById("history");
-
   for (const [guess, feedback] of game.playersGuesses.entries()) {
     const li = document.createElement("li");
     li.innerText = `${guess} ${feedback}`;
