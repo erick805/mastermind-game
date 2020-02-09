@@ -23,7 +23,7 @@ a true random number generator that generates randomness from atmospheric noise.
 
 <h3>Rules of the Game:</h3>
 <li>Game starts immediately after initial load.</li>
-<li>You have 10 attempts to get the right combination.</li>
+<li>You have 10 attempts to get the right combination from digits 0-7.</li>
 <li>The computer will provide feedback in three ways after each attempt:</li>
 
      - `Sorry your number is incorrect`
