@@ -72,7 +72,7 @@ export default class Game {
     const hint = document.getElementById("hint");
 
     hintButton.addEventListener("click", () => {
-      hint.innerText = `You got ${counter} numbers and locations right!`;
+      hint.innerText = `You got ${counter} numbers & locations right.`;
     });
   }
 }
