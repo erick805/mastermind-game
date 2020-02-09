@@ -37,3 +37,11 @@ a true random number generator that generates randomness from atmospheric noise.
 <li> "View History" displays your latest history after you submitted the combination by clicking "Unlock".</li>
 
 ![view history](./public/images/view-history.png)
+
+## Things to Improve:
+
+- Play Again feature - to restart and create a new instance of game
+- Implement time into attempts
+- Clear previous rendered history if "View History" is clicked again
+- Finish commented out code on dynamically rendering custom amount of locks
+- Connect to cloud service or remote database to save and display high scores.
