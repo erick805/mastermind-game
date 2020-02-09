@@ -9,12 +9,12 @@ a true random number generator that generates randomness from atmospheric noise.
 **Link:** [https://rickylaufitness.github.io/mastermind-game/public](https://rickylaufitness.github.io/mastermind-game/public) // Note - turn up or down volume for sound //
 
 **Development Mode:**
-
-- `$ git clone https://github.com/rickylaufitness/mastermind-game.git`
+<ol>
+     <li>`$ git clone https://github.com/rickylaufitness/mastermind-game.git`</li>
 - `$ cd mastermind-game`
 - Install live server. [live server vs code ext](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
 - Find index.html inside public dir. Right click and press "Open with Live Server".
-
+</ol>
 ![open live](./public/images/open-live.png)
 
 <h3>Rules of the Game:</h3>
