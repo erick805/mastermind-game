@@ -15,7 +15,7 @@ a true random number generator that generates randomness from atmospheric noise.
 <ol>
      <li>$ git clone https://github.com/rickylaufitness/mastermind-game.git</li>
      <li>$ cd mastermind-game</li>
-     <li>Install live server. https://tinyurl.com/y5p8qc4h</li>
+     <li>Install live server vs code extension. https://tinyurl.com/y5p8qc4h</li>
      <li>Find index.html inside public dir. Right click and press "Open with Live Server".</li>
 </ol>
 
@@ -46,4 +46,4 @@ a true random number generator that generates randomness from atmospheric noise.
 - Implement time into attempts
 - Clear previous rendered history if "View History" is clicked again
 - Finish commented out code on dynamically rendering custom amount of locks
-- Connect to cloud service or remote database to save and display high scores.
+- Connect to cloud service or remote database to save and display high scores
