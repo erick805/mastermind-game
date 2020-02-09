@@ -6,7 +6,7 @@ pick a lock. The lock is generated from https://www.random.org/clients/http/api/
 a true random number generator that generates randomness from atmospheric noise.
 </p>
 
-**Link:** [https://rickylaufitness.github.io/mastermind-game/public](https://rickylaufitness.github.io/mastermind-game/public) // Note - turn up or down volume for sound
+**Link:** [https://rickylaufitness.github.io/mastermind-game/public](https://rickylaufitness.github.io/mastermind-game/public) // Note - turn up or down volume for sound //
 
 **Development Mode:**
 
@@ -15,23 +15,27 @@ a true random number generator that generates randomness from atmospheric noise.
 - Install live server. [live server vs code ext](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
 - Find index.html inside public dir. Right click and press "Open with Live Server".
 
-![](./public/images/open-live.png)
+![open live](./public/images/open-live.png)
 
   <h3>Rules of the Game:</h3>
   <ol>
     <li>Game starts immediately after initial load.</li>
     <li>You have 10 attempts to get the right combination.</li>
     <li>The computer will provide feedback in three ways:</li>
+        ![feedback](./public/images/feedback.png)
         - `Sorry your number is incorrect`
         - `You got a correct number`
         - `Got a correct number and place!`
     <li>
       The "Provide Hint" Button displays how many numbers
       you got right && in the right location.
+        ![provide hint](./public/images/provide-hint.png)
     </li>
     <li>
       "View History" displays your latest history
        after you submitted the combination by clicking
        "Unlock".
+        ![view history](./public/images/view-history.png)
     </li>
+
   </ol>
