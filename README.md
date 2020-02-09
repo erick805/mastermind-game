@@ -17,25 +17,21 @@ a true random number generator that generates randomness from atmospheric noise.
 
 ![open live](./public/images/open-live.png)
 
-  <h3>Rules of the Game:</h3>
-  <ol>
-    <li>Game starts immediately after initial load.</li>
-    <li>You have 10 attempts to get the right combination.</li>
-    <li>The computer will provide feedback in three ways:</li>\
-        <img src ="../public/images/feedback">
-        - `Sorry your number is incorrect`
-        - `You got a correct number`
-        - `Got a correct number and place!`
-    <li>
-      The "Provide Hint" Button displays how many numbers
-      you got right && in the right location.
-        ![provide hint](./public/images/provide-hint.png)
-    </li>
-    <li>
-      "View History" displays your latest history
-       after you submitted the combination by clicking
-       "Unlock".
-        ![view history](./public/images/view-history.png)
-    </li>
+<h3>Rules of the Game:</h3>
+<li>Game starts immediately after initial load.</li>
+<li>You have 10 attempts to get the right combination.</li>
+<li>The computer will provide feedback in three ways:</li>
 
-  </ol>
+     - `Sorry your number is incorrect`
+     -  `You got a correct number`
+     - `Got a correct number and place!`
+
+![feedback](./public/images/feedback.png)
+
+<li>The "Provide Hint" Button displays how many numbers you got right && in the right location.</li>
+
+![provide hint](./public/images/provide-hint.png)
+
+<li> "View History" displays your latest historyafter you submitted the combination by clicking "Unlock".</li>
+
+![view history](./public/images/view-history.png)
