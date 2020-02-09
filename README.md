@@ -15,6 +15,7 @@ a true random number generator that generates randomness from atmospheric noise.
      <li>Install live server. [live server vs code ext](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)</li>
      <li>Find index.html inside public dir. Right click and press "Open with Live Server".</li>
 </ol>
+
 ![open live](./public/images/open-live.png)
 
 <h3>Rules of the Game:</h3>
