@@ -20,7 +20,7 @@ a true random number generator that generates randomness from atmospheric noise.
 ![open live](./public/images/open-live.png)
 
 <h3>Rules of the Game:</h3>
-- Game starts immediately after initial load.
+<li>Game starts immediately after initial load.</li>
 <li>You have 10 attempts to get the right combination.</li>
 <li>The computer will provide feedback in three ways after each attempt:</li>
 
