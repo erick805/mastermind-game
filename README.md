@@ -10,7 +10,7 @@ a true random number generator that generates randomness from atmospheric noise.
 
 **Development Mode:**
 <ol>
-     <li>`$ git clone https://github.com/rickylaufitness/mastermind-game.git`</li>
+     <li>git clone https://github.com/rickylaufitness/mastermind-game.git</li>
 - `$ cd mastermind-game`
 - Install live server. [live server vs code ext](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
 - Find index.html inside public dir. Right click and press "Open with Live Server".
