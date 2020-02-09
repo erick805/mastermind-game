@@ -6,14 +6,16 @@ pick a lock. The lock is generated from https://www.random.org/clients/http/api/
 a true random number generator that generates randomness from atmospheric noise.
 </p>
 
--**Link:**[https://rickylaufitness.github.io/mastermind-game/public](https://rickylaufitness.github.io/mastermind-game/public) // Note - turn up or down volume for sound
+**Link:** [https://rickylaufitness.github.io/mastermind-game/public](https://rickylaufitness.github.io/mastermind-game/public) // Note - turn up or down volume for sound
 
--**Development Mode:**
+**Development Mode:**
 
 - `$ git clone https://github.com/rickylaufitness/mastermind-game.git`
 - `$ cd mastermind-game`
 - Install live server. [live server vs code ext](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
 - Find index.html inside public dir. Right click and press "Open with Live Server".
+
+<img src="../images/open-live.png">
 
   <h3>Rules of the Game:</h3>
   <ol>
