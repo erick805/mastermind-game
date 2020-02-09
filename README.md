@@ -6,7 +6,7 @@ pick a lock. The lock is generated from https://www.random.org/clients/http/api/
 a true random number generator that generates randomness from atmospheric noise.
 </p>
 
-**Reasoning:** "Sometimes the best framework is no framework" - I chose to build this as a deployed website with raw HTML/CSS/DOM manipulation to challenge my DOM skills and saw no reason to use a framework to build a simple app.
+**Reasoning:** "Sometimes the best framework is no framework" - I chose to build this as a deployed website with raw HTML/CSS/DOM manipulation to challenge my DOM skills and saw no reason for the added complexity or abstraction a framework provides to build a simple app.
 
 **Link:** [https://rickylaufitness.github.io/mastermind-game/public](https://rickylaufitness.github.io/mastermind-game/public) // Note - turn up or down volume for sound //
 
