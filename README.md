@@ -9,6 +9,7 @@ a true random number generator that generates randomness from atmospheric noise.
 **Reasoning:** "Sometimes the best framework is no framework" - I chose to build this as a deployed website with raw HTML/CSS/DOM manipulation to challenge my DOM skills and saw no reason for the added complexity or abstraction a framework provides to build a simple app.
 
 **Link:** [https://rickylaufitness.github.io/mastermind-game/public](https://rickylaufitness.github.io/mastermind-game/public) // Note - turn up or down volume for sound //
+
 *for best view open on desktop/laptop Chrome Internet Service Provider*
 
 **Development Mode:**
