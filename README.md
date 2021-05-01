@@ -6,16 +6,14 @@ pick a lock. The lock is generated from https://www.random.org/clients/http/api/
 a true random number generator that generates randomness from atmospheric noise.
 </p>
 
-**Reasoning:** "Sometimes the best framework is no framework" - I chose to build this as a deployed website with raw HTML/CSS/DOM manipulation to challenge my DOM skills and saw no reason for the added complexity or abstraction a framework provides to build a simple app.
-
-**Link:** [https://rickylaufitness.github.io/mastermind-game/public](https://rickylaufitness.github.io/mastermind-game/public) // Note - turn up or down volume for sound //
+**Reasoning:** "Sometimes the best framework is no framework" - I chose to build this with raw HTML/CSS/DOM manipulation to challenge my DOM skills and saw no reason for the added complexity or abstraction a framework provides to build a simple app.
 
 *for best view open on desktop/laptop Chrome Internet Service Provider*
 
 **Development Mode:**
 
 <ol>
-     <li>$ git clone https://github.com/rickylaufitness/mastermind-game.git</li>
+     <li>$ git clone https://github.com/erick805/mastermind-game.git</li>
      <li>$ cd mastermind-game</li>
      <li>Install live server vs code extension. https://tinyurl.com/y5p8qc4h</li>
      <li>Find index.html inside public dir. Right click and press "Open with Live Server".</li>
